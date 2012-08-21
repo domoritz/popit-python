@@ -30,6 +30,12 @@ This PopitWrapper lets you easily create a new item by name. This can be a `pers
 	# get the id of the newly created item
     id = new['result']['_id']
 
+### …find something? ###
+
+The API is constantly evolving at this point so expect changes. Currently only simple searching implemented - you can search by ObjectIds and by case-insensitive string matching.
+
+	# get all people that have 'joe' in their name
+    results = api.person().get(name='joe')['results']
 
 ### …read something ###
 
@@ -68,11 +74,11 @@ You wanted to *create*, *update* or *delete* an item but provided a wrong userna
 **SchemaError: 'foo does not exist. Try one of these schemas: organisation, position, person.'**
 This happens when you try to get data from a schema that does not exist (in this case `foo`). The available schemas are determined when you first create the api object. 
 
-### …get more information abou what's going on internally? ###
+### …get more information about what's going on internally? ###
 
 Enable logging. 
 
-    logging.basicConfig(level = logging.WARN	, format=FORMAT) 
+    logging.basicConfig(level = logging.WARN, format=FORMAT) 
 
 ## Requirements ##
 
